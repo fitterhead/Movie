@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* overflow: scroll; */
+  outline: 1px solid limegreen !important;
+}
+.movie_carousel_wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  background-color: red;
+  width: max-content;
+  height: 40vh;
+  justify-content: space-evenly;
+  padding: 1rem 0rem 1rem 2rem;
+  gap: 1rem;
+  /* overflow: scroll; */
+}
+
+.movie_singleCard {
+  background-color: aqua;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie_singleCard_poster {
+  background-color: blue;
+  height: 50%;
+}
+.movie_singleCard_info {
+  background-color: green;
+  height: 50%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 filmography                                */
+/* -------------------------------------------------------------------------- */
+ActorPage_Avatar_And_Bio {
+  background-color: blueviolet;
+  flex-basis: 30vw;
+}
+
+.ActorPage_Filmography {
+  background-color: brown;
+  flex-basis: 70vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.ActorPage_Filmography_Carousel {
+  flex-basis: 40vh;
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+}
+
+.ActorPage_Filmography_List {
+  background-color: burlywood;
+  flex-basis: 60vh;
+}
+
+.ActorPage_Filmography_Carousel_Wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow: visible;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.ActorPage_Filmography {
+  background-color: brown;
+  flex-basis: 70vw;
+  display: flex;
+  flex-direction: column;
+}
