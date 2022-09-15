@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout";
 import ActorPage from "../pages/ActorPage";
 import DetailPage from "../pages/DetailPage";
 import HomePage from "../pages/HomePage";
+import KeywordResultPage from "../pages/KeywordResultPage";
 import LoginPage from "../pages/LoginPage";
 import MoviePage from "../pages/MoviePage";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -26,6 +27,7 @@ function Router() {
           <Route path="movie/:id" element={<DetailPage />} />
           <Route path="movie" element={<MoviePage />} />
           <Route path="search/:id" element={<SearchPage />} />
+          <Route path="keyword/:id" element={<KeywordResultPage />} />
           <Route path="login" element={<LoginPage />} />
             <Route path="actor/:id" element={<AuthRequired><ActorPage /></AuthRequired>} />
         </Route>

@@ -28,6 +28,7 @@ function HomePage() {
       <Link to="movie/:id" element={<DetailPage />}>
         movie
       </Link>{" "}
+      <p>New Text</p>
       <Link to="movie" element={<MoviePage />}>
         moviepage
       </Link>{" "}

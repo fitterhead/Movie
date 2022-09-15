@@ -7,6 +7,9 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
 
+const ratings = ["5", "6", "7", "8"];
+const years = ["1990", "2000", "2010", "2020"];
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -18,7 +21,7 @@ const MenuProps = {
   },
 };
 
- function FilterBar({ genresList, handleChange }) {
+function FilterBar({ genresList, yearList, ratingList, handleChange }) {
   const [genres, setGenres] = useState();
   // const [popular, setPopular] = useState();
   // const [year, setYear] = useState();
@@ -37,19 +40,15 @@ const MenuProps = {
     genres_list_API();
   }, []);
 
-  // console.log(genres, typeof genres);
-  // console.log(personName, "personname");
-  // console.log(handleChange, "handle");
-  // const theme = useTheme();
-
   if (genres) {
     return (
       <div>
         <FormControl sx={{ m: 1, width: 1 / 5 }}>
-          <InputLabel id="demo-multiple-name-label">Genres</InputLabel>
+          <InputLabel id="demo-multiple-genres-label">Genres</InputLabel>
           <Select
-            labelId="demo-multiple-name-label"
-            id="demo-multiple-name"
+            labelId="demo-multiple-genres-label"
+            id="demo-multiple-genres"
+            name="genres"
             multiple
             value={genresList}
             onChange={handleChange}
@@ -68,60 +67,79 @@ const MenuProps = {
           </Select>
         </FormControl>
 
-
+        <FormControl sx={{ m: 1, width: 1 / 5 }}>
+          <InputLabel id="demo-multiple-years-label">Years</InputLabel>
+          <Select
+            labelId="demo-multiple-years-label"
+            id="demo-multiple-years"
+            multiple
+            name="years"
+            value={yearList}
+            onChange={handleChange}
+            input={<OutlinedInput />}
+            MenuProps={MenuProps}
+          >
+            {years.map((year) => (
+              <MenuItem
+                key={year}
+                value={year}
+                // style={getStyles(tagItem, personName, theme)}
+              >
+                {year}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
         <FormControl sx={{ m: 1, width: 1 / 5 }}>
+          <InputLabel id="demo-multiple-years-label">Ratings</InputLabel>
+          <Select
+            labelId="demo-multiple-Ratings-label"
+            id="demo-multiple-Ratings"
+            multiple
+            name="ratings"
+            value={ratingList}
+            onChange={handleChange}
+            input={<OutlinedInput />}
+            MenuProps={MenuProps}
+          >
+            {ratings.map((rating) => (
+              <MenuItem
+                key={rating}
+                value={rating}
+                // style={getStyles(tagItem, personName, theme)}
+              >
+                {rating}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        {/* <FormControl sx={{ m: 1, width: 1 / 5 }}>
           <InputLabel id="demo-multiple-name-label">Popular</InputLabel>
           <Select
             labelId="demo-multiple-name-label"
             id="demo-multiple-name"
-            multiple
-            value={genresList}
+            value={ratings}
             onChange={handleChange}
             input={<OutlinedInput />}
             MenuProps={MenuProps}
           >
-            {genres.map((tagItem) => (
+            {ratings.map((rating) => (
               <MenuItem
-                key={tagItem.name}
-                value={tagItem.id}
+                key={rating}
+                value={rating}
                 // style={getStyles(tagItem, personName, theme)}
               >
-                {tagItem.name}
+                {rating}
               </MenuItem>
             ))}
           </Select>
-        </FormControl>
-
-
-
-        <FormControl sx={{ m: 1, width: 1 / 5 }}>
-          <InputLabel id="demo-multiple-name-label">Year</InputLabel>
-          <Select
-            labelId="demo-multiple-name-label"
-            id="demo-multiple-name"
-            multiple
-            value={genresList}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            MenuProps={MenuProps}
-          >
-            {genres.map((tagItem) => (
-              <MenuItem
-                key={tagItem.name}
-                value={tagItem.id}
-                // style={getStyles(tagItem, personName, theme)}
-              >
-                {tagItem.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        </FormControl> */}
       </div>
     );
   }
 }
-
 
 // function getStyles(name, personName, theme) {
 //   return {
@@ -132,4 +150,4 @@ const MenuProps = {
 //   };
 // }
 
-export default FilterBar
+export default FilterBar;

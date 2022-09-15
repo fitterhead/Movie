@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   overflow: auto;
-  outline: 1px solid limegreen !important;
+  /* outline: 1px solid limegreen !important; */
 }
 
 .test_box {

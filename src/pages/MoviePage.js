@@ -3,30 +3,66 @@ import React, { useEffect, useState } from "react";
 import FilmResultList from "../components/FilmResultList";
 import FilterBar from "../components/FilterBar";
 function MoviePage() {
-  // call the genres list and pass it down to filter bar
   const [genresList, setGenresList] = React.useState([]);
+  const [yearList, setYearList] = React.useState([]);
+  const [ratingList, setRatingList] = React.useState([]);
+
+  //step 1
+  // create useState of year list and rating list
+  //all of them need initial value
+
   const handleChange = (event) => {
     // console.log(event, "event")
+
+    //STEP 2
+    // create a filter of handleChange:
+    // if name =genre  => setGenresList
+    // if name =year  => setYearList
+    // if name = rating  => setRatingList
+
+    const name = event.target.name;
     const {
       target: { value },
     } = event;
-    setGenresList(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
     console.log({ value });
+    switch (name) {
+      case "genres":
+        setGenresList(typeof value === "string" ? value.split(",") : value);
+        break;
+      case "years":
+        // setYearList(typeof value === "string" ? value.split(",") : value);
+        setYearList(value);
+        break;
+      case "ratings":
+        // setRatingList(typeof value === "string" ? value.split(",") : value);
+        setRatingList(value);
+        break;
+      default:
+        console.log(event);
+    }
+
+    // setGenresList(typeof value === "string" ? value.split(",") : value);
+    // console.log({ value });
+    // console.log(name, "name");
   };
-  //render the amount of film based on filter bar chosen value
-
-  //create an initial state list of films.
-
+  // STEP 3
+  // send genreList, yearList and ratingList to FilmResultList
   return (
     <>
       <div className="film_filterBar">
-        <FilterBar genresList={genresList} handleChange={handleChange} />
+        <FilterBar
+          genresList={genresList}
+          yearList={yearList}
+          ratingList={ratingList}
+          handleChange={handleChange}
+        />
       </div>
       <div className="film_resultList">
-        <FilmResultList genresList={genresList} />
+        <FilmResultList
+          genresList={genresList}
+          yearList={yearList}
+          ratingList={ratingList}
+        />
       </div>
     </>
   );

@@ -12,25 +12,29 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
 
-function FilmResultList({ genresList }) {
+function FilmResultList({ genresList, yearList, ratingList }) {
   const [APIdata, setAPIdata] = useState(null);
 
+  //receive a collection of value of genre, year and rating
+  // all of them have initialValue
   useEffect(() => {
     const genres_list_API = async () => {
       try {
         const apiResponse = await axios.get(
-          `https://api.themoviedb.org/3/discover/movie?api_key=bbeda772f02e59d1308c33d70a96e1ae&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genresList}&with_watch_monetization_types=flatrate`
+          `https://api.themoviedb.org/3/discover/movie?api_key=bbeda772f02e59d1308c33d70a96e1ae&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&&year=${yearList}&vote_average.gte=${ratingList}&with_genres=${genresList}&with_watch_monetization_types=flatrate`
         );
+        // const apiResponse = await axios.get(
+        //   `https://api.themoviedb.org/3/discover/movie?api_key=bbeda772f02e59d1308c33d70a96e1ae&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genresList}&with_watch_monetization_types=flatrate`
+        // );
         setAPIdata(apiResponse);
       } catch (error) {
         console.log({ error });
       }
     };
     genres_list_API();
-  }, [genresList]);
+  }, [genresList, yearList, ratingList]);
 
-  console.log(APIdata);
-  console.log(genresList, "persoNameFilter");
+  console.log(APIdata, "APIdata");
 
   if (APIdata) {
     return (
@@ -38,8 +42,9 @@ function FilmResultList({ genresList }) {
         {APIdata.data.results.slice(0, 4).map((singleFilm) => {
           return (
             <Card
-            key = {Math.random()}
-            sx={{ flexBasis: "25vw", height: "fit-content" }}>
+              key={Math.random()}
+              sx={{ flexBasis: "25vw", height: "fit-content" }}
+            >
               <CardActionArea>
                 <CardMedia
                   component="img"
