@@ -12,9 +12,9 @@ import NotFoundPage from "../pages/NotFoundPage";
 import SearchPage from "../pages/SearchPage";
 // import ModalPage from "../pages/ModalPage";
 import AuthRequired from "./AuthRequired";
+import FavouriteFilm from "../pages/FavouriteFilm";
 
 // import AuthRequired from './AuthRequired'
-
 function Router() {
   let location = useLocation();
   console.log(location, "location status");
@@ -26,10 +26,12 @@ function Router() {
           <Route index element={<HomePage />} />
           <Route path="movie/:id" element={<DetailPage />} />
           <Route path="movie" element={<MoviePage />} />
+          <Route path="favouritefilm" element={<FavouriteFilm />} />
           <Route path="search/:id" element={<SearchPage />} />
           <Route path="keyword/:id" element={<KeywordResultPage />} />
           <Route path="login" element={<LoginPage />} />
-            <Route path="actor/:id" element={<AuthRequired><ActorPage /></AuthRequired>} />
+            {/* <Route path="actor/:id" element={<AuthRequired><ActorPage /></AuthRequired>} /> */}
+            <Route path="actor/:id" element={<ActorPage />} />
         </Route>
 
         {/* <Route element={<BlankLayout />}>

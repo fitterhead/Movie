@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "./styles.css";
+// import "./styles.css";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
@@ -22,7 +22,7 @@ function Bio({actorId}) {
         const apiResponse = await axios.get(
           `https://api.themoviedb.org/3/person/${actorId}?api_key=bbeda772f02e59d1308c33d70a96e1ae&language=en-US`
         );
-        console.log(apiResponse);
+        console.log(apiResponse,"actor Bio");
         // console.log(apiResponse.data.results[1]);
         setmovie_ActorDetail_API_data(apiResponse);
       } catch (error) {
@@ -32,11 +32,15 @@ function Bio({actorId}) {
     movie_ActorDetail_API();
   }, []);
 
-  console.log(movie_ActorDetail_API_data, "data");
 
   if (movie_ActorDetail_API_data) {
     return (
-      <Card sx={{ maxWidth: 345 }}>
+      <Card 
+       sx={{ 
+      // maxWidth: 345 
+      padding:"1rem"
+    }}
+      >
       <CardMedia
         component="img"
         // height="140"
@@ -48,8 +52,8 @@ function Bio({actorId}) {
         <Button size="small">Website</Button>
       </CardActions>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Name:{movie_ActorDetail_API_data.data.name}
+        <Typography gutterBottom variant="h10" component="div">
+          {movie_ActorDetail_API_data.data.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Known For:{movie_ActorDetail_API_data.data.known_for_department}

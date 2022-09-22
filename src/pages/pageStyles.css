@@ -11,14 +11,14 @@
 .test_box {
   width: 20vw;
   height: 100px;
-  background-color: blue;
+  /* background-color: blue; */
 }
 
 /* -------------------------------------------------------------------------- */
 /*                               MainPage Start                               */
 /* -------------------------------------------------------------------------- */
 .MainPage_Wrapper {
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
   /* height: 100vh; */
   /* width: 100vw; */
   display: flex;
@@ -52,35 +52,37 @@
 .DetailPage_wrapper {
   display: flex;
   flex-direction: column;
-  background-color: red;
+  /* background-color: red; */
   height: 100vh;
 
 }
 
 .DetailPage_FilmDetail_Wrapper {
   /* flex-basis:30vh; */
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
   padding: 1rem;
   overflow: visible;
+  display: flex;
+  justify-content: center;
 }
 
 .DetailPage_AdditionalDetails_Wrapper {
   flex-basis: 70vh;
-  background-color: burlywood;
+  /* background-color: burlywood; */
   display: flex;
   flex-direction: column;
 }
 
 .DetailPage_CastAndTag_Wrapper {
-  background-color: brown;
+  /* background-color: brown; */
   flex-basis: 70%;
   display: flex;
   flex-direction: row;
 }
 
 .DetailPage_Recommendation_Wrapper {
-  background-color: goldenrod;
-  flex-basis: 30%;
+  /* background-color: goldenrod; */
+  flex-basis: 30vh;
   display: flex;
   flex-direction: row;
 }
@@ -88,28 +90,28 @@
 .DetailPage_Cast {
   flex-basis: 70vw;
   overflow-x: auto;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 
 .DetailPage_Tag {
   flex-basis: 30vw;
-  background-color: pink;
+  /* background-color: pink; */
   padding: 1rem;
   height: 100%;
 
 }
 
 .DetailPage_CastCarousel_Wrapper {
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
   overflow-x: scroll;
-  height: 30vh;
-  padding: 1rem;
-  width: 60vw;
+  padding: 2rem 1rem 2rem 1rem;
+  /* width: 100%; */
+  /* width: 60vw; */
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   width: max-content;
-  gap: 1rem
+  gap: 1.5rem
 }
 
 /* .movie_singleCard {
@@ -120,7 +122,6 @@
 }
 
 .movie_singleCard_poster {
-  background-color: blue;
   height: 50%;
 }
 .movie_singleCard_info {
@@ -136,39 +137,28 @@
 .test_box {
   width: 200px;
   height: 100px;
-  background-color: red;
+  /* background-color: red; */
 }
 
 /* -------------------------------------------------------------------------- */
 /*                                MainCastPage                                */
 /* -------------------------------------------------------------------------- */
-.movie_carousel_wrapper {
-  display: flex;
-  flex-direction: row;
-  overflow: scroll;
-  background-color: red;
-  width: max-content;
-  height: 40vh;
-  justify-content: space-evenly;
-  padding: 1rem 0rem 1rem 2rem;
-  gap: 1rem;
-  /* overflow: scroll; */
-}
+
 
 .movie_singleCard {
-  background-color: aqua;
+  /* background-color: aqua; */
   width: 15vw;
   display: flex;
   flex-direction: column;
 }
 
 .movie_singleCard_poster {
-  background-color: blue;
+  /* background-color: blue; */
   height: 50%;
 }
 
 .movie_singleCard_info {
-  background-color: green;
+  /* background-color: green; */
   height: 50%;
 }
 
@@ -177,7 +167,7 @@
 /* -------------------------------------------------------------------------- */
 
 .ActorPage_Wrapper {
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -185,7 +175,7 @@
 }
 
 .ActorPage_Avatar_And_Bio {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   flex-basis: 30vw;
 }
 
@@ -193,15 +183,105 @@
 
 
 .film_filterBar {
-  background-color: white;
+  /* background-color: white; */
   padding: 1rem;
 
 }
 
 .film_resultList {
-  background-color: green;
+  /* background-color: green; */
   height: 90vh;
   display: flex;
   flex-direction: row;
   /* flex-wrap: nowrap; */
+}
+
+
+.carousel_wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  /* background-color: blue; */
+  width: max-content;
+  height: max-content;
+  /* height: 40vh; */
+  justify-content: space-evenly;
+  /* padding: 1rem 0rem 1rem 2rem; */
+  padding: 0rem 0rem 0rem 1rem;
+  margin: 1rem 0rem 0rem 0rem;
+  gap: 1rem;
+  overflow: scroll;
+}
+
+.movie_singleCard {
+  /* background-color: aqua; */
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie_singleCard_poster {
+  /* background-color: blue; */
+  height: 50%;
+}
+
+.movie_singleCard_info {
+  /* background-color: green; */
+  height: 50%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 filmography                                */
+/* -------------------------------------------------------------------------- */
+.ActorPage_Avatar_And_Bio {
+  /* background-color: blueviolet; */
+  flex-basis: 30vw;
+}
+
+.ActorPage_Filmography {
+  /* background-color: brown; */
+  flex-basis: 70vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.ActorPage_Filmography_Carousel {
+  display: flex;
+  flex-direction: row;
+  /* background-color: red; */
+  padding: 3rem 2rem 3rem 2rem;
+}
+
+.ActorPage_Filmography_List {
+  /* background-color: burlywood; */
+  flex-basis: 60vh;
+}
+
+.ActorPage_Filmography_Carousel_Wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow: visible;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+
+.ActorPage_Filmography {
+  /* background-color: brown; */
+  flex-basis: 70vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .recommendation_singleCard {
+
+height: 20vh;
+} */
+
+.css-1bf5lnp-MuiCardContent-root:last-child {
+  padding-bottom: 0px
 }

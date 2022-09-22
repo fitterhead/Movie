@@ -1,4 +1,9 @@
 {
-"account":{"username":"qwerty","password":"123456"}
-
+  "account": [
+    {
+      "username": "qwerty",
+      "password": "123456"
+    }
+  ],
+  "favourite": []
 }

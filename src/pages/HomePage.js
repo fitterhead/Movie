@@ -21,14 +21,21 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
 import MoviePage from "./MoviePage";
-
+import LoginModal from "../components/LoginModal";
+import FavouriteFilm from "./FavouriteFilm";
 function HomePage() {
   return (
     <>
       <Link to="movie/:id" element={<DetailPage />}>
         movie
       </Link>{" "}
-      <p>New Text</p>
+      <br></br>
+      <Link to="favouritefilm" element={<FavouriteFilm />}>
+        FavouriteFilm
+      </Link>{" "}
+      <br></br>
+      <LoginModal />
+
       <Link to="movie" element={<MoviePage />}>
         moviepage
       </Link>{" "}
@@ -46,10 +53,14 @@ function HomePage() {
         <SearchBar />
       </Box>
       <div className="MainPage_Wrapper">
-        <div className="carousel_Wrapper">
+        <div 
+        // className="carousel_Wrapper"
+        >
           <TvCarousel />
         </div>
-        <div className="carousel_Wrapper">
+        <div 
+        // className="carousel_Wrapper"
+        >
           <FilmCarousel />
         </div>
       </div>

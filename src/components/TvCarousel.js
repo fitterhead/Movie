@@ -36,7 +36,7 @@ function TvCarousel() {
 
   if (APIdata) {
     return (
-      <div className="movie_carousel_wrapper">{APIdata.data.results.map((singleFilm) => {
+      <div className="carousel_wrapper">{APIdata.data.results.map((singleFilm) => {
         return (
           <CardActionArea
             sx={{
@@ -58,8 +58,11 @@ function TvCarousel() {
           }}
             
           >
-            <Card sx={{ maxWidth: "10rem", Height: "max-content" }}>
+            <Card
+
+            sx={{ maxWidth: "10rem", Height: "max-content" }}>
               <CardMedia
+
                 sx={{ borderRadius: "0.7rem" }}
                 component="img"
                 alt="film"
@@ -67,7 +70,9 @@ function TvCarousel() {
                 image={`https://image.tmdb.org/t/p/w500/${singleFilm.poster_path}`}
               />
               <CardContent>
-                <Typography gutterBottom variant="h10" component="div">
+                <Typography 
+                sx ={{padding:"0.1em"}}
+                gutterBottom variant="h10" component="div">
                 {singleFilm.original_name}                </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {singleFilm.first_air_date}
