@@ -13,8 +13,9 @@ import SearchPage from "../pages/SearchPage";
 // import ModalPage from "../pages/ModalPage";
 import AuthRequired from "./AuthRequired";
 import FavouriteFilm from "../pages/FavouriteFilm";
-
+import LoginModal from "../components/LoginModal";
 // import AuthRequired from './AuthRequired'
+import LoginModalMain from "../components/LoginModalMain";
 function Router() {
   let location = useLocation();
   console.log(location, "location status");
@@ -29,47 +30,14 @@ function Router() {
           <Route path="favouritefilm" element={<FavouriteFilm />} />
           <Route path="search/:id" element={<SearchPage />} />
           <Route path="keyword/:id" element={<KeywordResultPage />} />
-          <Route path="login" element={<LoginPage />} />
-            {/* <Route path="actor/:id" element={<AuthRequired><ActorPage /></AuthRequired>} /> */}
-            <Route path="actor/:id" element={<ActorPage />} />
+          {/* <Route path="login" element={<LoginModal />} /> */}
+          <Route path="login" element={<LoginModalMain />} />
+          {/* <Route path="actor/:id" element={<AuthRequired><ActorPage /></AuthRequired>} /> */}
+          <Route path="actor/:id" element={<ActorPage />} />
         </Route>
-
-        {/* <Route element={<BlankLayout />}>
-        <Route path="*" element={<NotFoundPage />} />
-        <Route path='/login' element={<LoginPage />}/>
-      </Route> */}
-
-        {/* {state?.backgroundLocation && (
-        <Routes>
-          <Route path="/img/:id" element={<ModalPage />} />
-        </Routes>
-      )} */}
       </Routes>
-      {/* {state?.backgroundLocation && (
-      <Routes>
-        <Route path="/actor/:id" element={<ModalPage />} />
-      </Routes>
-      )} */}
     </>
   );
 }
 
 export default Router;
-
-// function Router() {
-//     return (
-//       <Routes>
-//           <Route path='/' element={<MainLayout />}>
-//               <Route index element={<HomePage />}/>
-//               <Route element={<AuthRequired />}>
-//               <Route path='movie/:id' element={<DetailPage />}/>
-//               <Route path='actor/:id' element={<ActorPage />}/>
-//               </Route>
-//           </Route>
-//           <Route element={<BlankLayout />}>
-//           <Route path='*' element={<NotFoundPage />}/>
-//               <Route path='/login' element={<LoginPage />}/>
-//           </Route>
-//       </Routes>
-//     )
-//   }

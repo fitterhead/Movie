@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MockupPage() {
-  return (
-    <div>MockupPage</div>
-  )
+  return <div>MockupPage</div>;
 }
 
-export default MockupPage
+export default MockupPage;

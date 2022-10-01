@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useTheme } from "@mui/material/styles";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -23,8 +22,6 @@ const MenuProps = {
 
 function FilterBar({ genresList, yearList, ratingList, handleChange }) {
   const [genres, setGenres] = useState();
-  // const [popular, setPopular] = useState();
-  // const [year, setYear] = useState();
 
   useEffect(() => {
     const genres_list_API = async () => {
@@ -56,11 +53,7 @@ function FilterBar({ genresList, yearList, ratingList, handleChange }) {
             MenuProps={MenuProps}
           >
             {genres.map((tagItem) => (
-              <MenuItem
-                key={tagItem.name}
-                value={tagItem.id}
-                // style={getStyles(tagItem, personName, theme)}
-              >
+              <MenuItem key={tagItem.name} value={tagItem.id}>
                 {tagItem.name}
               </MenuItem>
             ))}
@@ -80,11 +73,7 @@ function FilterBar({ genresList, yearList, ratingList, handleChange }) {
             MenuProps={MenuProps}
           >
             {years.map((year) => (
-              <MenuItem
-                key={year}
-                value={year}
-                // style={getStyles(tagItem, personName, theme)}
-              >
+              <MenuItem key={year} value={year}>
                 {year}
               </MenuItem>
             ))}
@@ -104,50 +93,15 @@ function FilterBar({ genresList, yearList, ratingList, handleChange }) {
             MenuProps={MenuProps}
           >
             {ratings.map((rating) => (
-              <MenuItem
-                key={rating}
-                value={rating}
-                // style={getStyles(tagItem, personName, theme)}
-              >
+              <MenuItem key={rating} value={rating}>
                 {rating}
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-
-        {/* <FormControl sx={{ m: 1, width: 1 / 5 }}>
-          <InputLabel id="demo-multiple-name-label">Popular</InputLabel>
-          <Select
-            labelId="demo-multiple-name-label"
-            id="demo-multiple-name"
-            value={ratings}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            MenuProps={MenuProps}
-          >
-            {ratings.map((rating) => (
-              <MenuItem
-                key={rating}
-                value={rating}
-                // style={getStyles(tagItem, personName, theme)}
-              >
-                {rating}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl> */}
       </div>
     );
   }
 }
-
-// function getStyles(name, personName, theme) {
-//   return {
-//     fontWeight:
-//       personName.indexOf(name) === -1
-//         ? theme.typography.fontWeightRegular
-//         : theme.typography.fontWeightMedium,
-//   };
-// }
 
 export default FilterBar;

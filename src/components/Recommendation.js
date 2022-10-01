@@ -32,13 +32,16 @@ function Recommendation({ movieId, idType }) {
     return (
       <>
         {APIdata.data.results.map((singleRecommendation) => {
-          // console.log({ singleRecommendation });
+          console.log({ singleRecommendation });
           return (
             <Card sx={{ maxWidth: "20vw" }}>
               <CardActionArea>
                 <CardMedia
                   onClick={() => {
-                    localStorage.setItem("type", JSON.stringify(`movie`));
+                    localStorage.setItem(
+                      "type",
+                      JSON.stringify(`${singleRecommendation.media_type}`)
+                    );
                     navigate(`/movie/${singleRecommendation.id}`);
                   }}
                   component="img"
@@ -48,7 +51,9 @@ function Recommendation({ movieId, idType }) {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h10" component="div">
-                    {singleRecommendation.title}
+                    {singleRecommendation.title
+                      ? singleRecommendation.title
+                      : singleRecommendation.name}
                   </Typography>
                   <Typography
                     variant="body2"

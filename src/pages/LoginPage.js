@@ -1,15 +1,9 @@
-import { CssVarsProvider } from "@mui/joy/styles";
-import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
-import TextField from "@mui/joy/TextField";
-import Button from "@mui/joy/Button";
+import Box from "@mui/joy/Box";
 import Link from "@mui/joy/Link";
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-
-import Form from "@mui/material/FormLabel";
-import { FormContainer, TextFieldElement } from "react-hook-form-mui";
 import { AuthContext } from "../contexts/AuthProvider";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -21,7 +15,6 @@ function LoginPage() {
   const onSubmit = async (data) => {
     let from = location.state?.from?.pathname || "/";
     console.log(data);
-    //fetch data từ api rồi so sánh
     try {
       const apiResponse = await axios.get(`http://localhost:5000/account`);
       console.log({ apiResponse });
@@ -34,29 +27,11 @@ function LoginPage() {
     } catch (error) {
       console.log(error);
     }
-
-    //nếu giống nhau thì chạy login
-    //nếu khác nhau thì console.log fail
   };
-  // const showData = (data) => console.log (data)
-
-  // useEffect(() => {
-  //   const movie_trending_API = async () => {
-  //     try {
-  //       const apiResponse = await axios.get(
-  //         `http://localhost:5000/account`
-  //       );
-  //       console.log({apiResponse});
-  //     } catch (error) {
-  //       console.log({ error });
-  //     }
-  //   };
-  //   movie_trending_API();
-  // }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Sheet
+      <Box
         sx={{
           maxWidth: 400,
           mx: "auto", // margin left & right
@@ -92,15 +67,6 @@ function LoginPage() {
           />
         </div>
         <input type="submit" />
-        {/* <Button 
-        type= "submit"
-          // onClick = {() => console.log(showData)}
-          sx={{
-            mt: 1, // margin top
-          }}
-        >
-          Log in
-        </Button> */}
         <Typography
           endDecorator={<Link href="/sign-up">Sign up</Link>}
           fontSize="sm"
@@ -108,7 +74,7 @@ function LoginPage() {
         >
           Don't have an account?
         </Typography>
-      </Sheet>
+      </Box>
     </form>
   );
 }

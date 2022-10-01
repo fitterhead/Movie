@@ -1,32 +1,18 @@
-import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import PersonIcon from "@mui/icons-material/Person";
-import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
-import { blue } from "@mui/material/colors";
-import { CssVarsProvider } from "@mui/joy/styles";
 import Sheet from "@mui/joy/Sheet";
-import TextField from "@mui/joy/TextField";
 import Link from "@mui/joy/Link";
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-
-import Form from "@mui/material/FormLabel";
-import { FormContainer, TextFieldElement } from "react-hook-form-mui";
 import { AuthContext } from "../contexts/AuthProvider";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const emails = ["username@gmail.com", "user02@gmail.com"];
 
-function SimpleDialog(props) {
+export default function LoginModal(props) {
   let location = useLocation();
   let navigate = useNavigate();
   const { register, handleSubmit } = useForm();
@@ -34,7 +20,6 @@ function SimpleDialog(props) {
   const onSubmit = async (data) => {
     let from = location.state?.from?.pathname || "/";
     console.log(data);
-    //fetch data từ api rồi so sánh
     try {
       const apiResponse = await axios.get(`http://localhost:5000/account`);
       console.log({ apiResponse });
@@ -47,9 +32,6 @@ function SimpleDialog(props) {
     } catch (error) {
       console.log(error);
     }
-
-    //nếu giống nhau thì chạy login
-    //nếu khác nhau thì console.log fail
   };
   const { onClose, selectedValue, open } = props;
 
@@ -57,9 +39,9 @@ function SimpleDialog(props) {
     onClose(selectedValue);
   };
 
-  const handleListItemClick = (value) => {
-    onClose(value);
-  };
+  // const handleListItemClick = (value) => {
+  //   onClose(value);
+  // };
 
   return (
     <Dialog onClose={handleClose} open={open}>
@@ -101,15 +83,6 @@ function SimpleDialog(props) {
             />
           </div>
           <input type="submit" />
-          {/* <Button 
-        type= "submit"
-          // onClick = {() => console.log(showData)}
-          sx={{
-            mt: 1, // margin top
-          }}
-        >
-          Log in
-        </Button> */}
           <Typography
             endDecorator={<Link href="/sign-up">Sign up</Link>}
             fontSize="sm"
@@ -123,13 +96,7 @@ function SimpleDialog(props) {
   );
 }
 
-SimpleDialog.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired,
-};
-
-export default function SimpleDialogDemo() {
+export function SimpleDialogDemo() {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
@@ -148,11 +115,6 @@ export default function SimpleDialogDemo() {
       <Button variant="outlined" onClick={handleClickOpen}>
         Open simple dialog
       </Button>
-      <SimpleDialog
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
     </div>
   );
 }

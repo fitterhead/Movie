@@ -230,23 +230,20 @@ img {
 /* -------------------------------------------------------------------------- */
 /*                                 filmography                                */
 /* -------------------------------------------------------------------------- */
-.ActorPage_Avatar_And_Bio {
-  /* background-color: blueviolet; */
-  flex-basis: 30vw;
-}
+
 
 .ActorPage_Filmography {
   /* background-color: brown; */
-  flex-basis: 70vw;
-  display: flex;
-  flex-direction: column;
+  /* flex-basis: 70vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 .ActorPage_Filmography_Carousel {
   display: flex;
   flex-direction: row;
   /* background-color: red; */
-  padding: 3rem 2rem 3rem 2rem;
+  /* padding: 3rem 2rem 3rem 2rem; */
 }
 
 .ActorPage_Filmography_List {
@@ -258,8 +255,8 @@ img {
   display: flex;
   flex-direction: row;
   overflow: visible;
-  justify-content: space-evenly;
-  gap: 1.5rem;
+  gap:1rem
+  /* justify-content: space-evenly; */
 }
 
 .ActorPage_Filmography {
@@ -276,4 +273,8 @@ height: 20vh;
 
 .css-1bf5lnp-MuiCardContent-root:last-child {
   padding-bottom: 0px;
+}
+
+.css-bhp9pd-MuiPaper-root-MuiCard-root {
+box-shadow: 0px;
 }

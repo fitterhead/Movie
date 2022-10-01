@@ -15,13 +15,14 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { AuthContext } from "../contexts/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const pages = ["Movie", "TV", "Actor"];
+// const pages = ["Movie", "TV", "Actor"];
+const pages = ["Movie"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const NavBar = () => {
   const Auth = useContext(AuthContext);
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
   console.log({ Auth });
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -35,8 +36,10 @@ const NavBar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
     setAnchorElNav(null);
+    console.log("afsfsdfsjdhfksjfhksjfhdsk");
+    navigate(`${page}`);
   };
 
   const handleCloseUserMenu = () => {
@@ -49,8 +52,8 @@ const NavBar = () => {
         console.log(`performLogout`);
         Auth.logout(() => {
           navigate(from, { replace: true });
-        })        
-        
+        });
+
         break;
 
       default:
@@ -62,7 +65,7 @@ const NavBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -78,7 +81,7 @@ const NavBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            MOVIE
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -117,7 +120,7 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -140,7 +143,7 @@ const NavBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleCloseNavMenu(page)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
@@ -151,7 +154,6 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {/* <Typography>aaa</Typography> */}
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -174,7 +176,6 @@ const NavBar = () => {
               {settings.map((setting) => (
                 <MenuItem
                   key={setting}
-                  // onClick={handleCloseUserMenu}
                   onClick={() => {
                     handleSetting(setting);
                     handleCloseUserMenu();

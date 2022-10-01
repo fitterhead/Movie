@@ -10,17 +10,12 @@ import { Button, CardActionArea } from "@mui/material";
 function FavouriteFilm() {
   const [favouriteList, setFavouriteList] = useState(null);
   const [removedBookId, setRemovedBookId] = useState(null);
-  //   const navigate = useNavigate();
-  // const deleteThis = (event) => {
-  //   console.log(event, "target");
-  // };
   useEffect(() => {
     if (removedBookId) return;
     const actor_list_API = async () => {
       try {
         const apiResponse = await axios.get(`http://localhost:5000/favourite`);
         console.log(apiResponse, "favouriteList");
-        // console.log(apiResponse.data.results[1]);
         setFavouriteList(apiResponse);
       } catch (error) {
         console.log({ error });
@@ -33,14 +28,11 @@ function FavouriteFilm() {
     if (!removedBookId) return;
     const actor_list_API = async () => {
       try {
-        // const apiResponse = await axios.get(`http://localhost:5000/favourite`);
         const apiResponse = await axios.delete(
           `http://localhost:5000/favourite/${removedBookId}`
         );
         console.log(apiResponse, "favouriteList");
         setRemovedBookId("");
-        // console.log(apiResponse.data.results[1]);
-        // setFavouriteList(apiResponse);
       } catch (error) {
         console.log({ error });
       }
@@ -49,14 +41,6 @@ function FavouriteFilm() {
   }, [removedBookId, favouriteList]);
 
   console.log(favouriteList, "dasdsdsdsdta");
-
-  // const removeTask = (movieId) => {
-  //   setFavouriteList(
-  //     favouriteList.filter((favouriteMovie) => favouriteMovie.id !== movieId)
-
-  //   )
-  //   console.log(favouriteList);
-  // };
 
   if (favouriteList) {
     return (
@@ -76,12 +60,6 @@ function FavouriteFilm() {
               sx={{ maxWidth: "100vw", maxHeight: "20vh" }}
             >
               <CardActionArea>
-                {/* <CardMedia
-                component="img"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
-                alt="green iguana"
-              /> */}
                 <CardContent>
                   <Button
                     onClick={() => {
