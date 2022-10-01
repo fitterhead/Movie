@@ -54,7 +54,6 @@
   flex-direction: column;
   /* background-color: red; */
   height: 100vh;
-
 }
 
 .DetailPage_FilmDetail_Wrapper {
@@ -98,7 +97,6 @@
   /* background-color: pink; */
   padding: 1rem;
   height: 100%;
-
 }
 
 .DetailPage_CastCarousel_Wrapper {
@@ -111,7 +109,7 @@
   flex-direction: row;
   justify-content: flex-start;
   width: max-content;
-  gap: 1.5rem
+  gap: 1.5rem;
 }
 
 /* .movie_singleCard {
@@ -143,7 +141,6 @@
 /* -------------------------------------------------------------------------- */
 /*                                MainCastPage                                */
 /* -------------------------------------------------------------------------- */
-
 
 .movie_singleCard {
   /* background-color: aqua; */
@@ -179,13 +176,9 @@
   flex-basis: 30vw;
 }
 
-
-
-
 .film_filterBar {
   /* background-color: white; */
   padding: 1rem;
-
 }
 
 .film_resultList {
@@ -196,7 +189,6 @@
   /* flex-wrap: nowrap; */
 }
 
-
 .carousel_wrapper {
   display: flex;
   flex-direction: row;
@@ -206,8 +198,8 @@
   height: max-content;
   /* height: 40vh; */
   justify-content: space-evenly;
-  /* padding: 1rem 0rem 1rem 2rem; */
-  padding: 0rem 0rem 0rem 1rem;
+  padding: 2rem;
+  /* padding: 1rem 0rem 1rem 1rem; */
   margin: 1rem 0rem 0rem 0rem;
   gap: 1rem;
   overflow: scroll;
@@ -283,5 +275,5 @@ height: 20vh;
 } */
 
 .css-1bf5lnp-MuiCardContent-root:last-child {
-  padding-bottom: 0px
+  padding-bottom: 0px;
 }

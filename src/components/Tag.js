@@ -23,9 +23,12 @@ function Tag({ movieId, idType }) {
   //   localStorage.setItem("type", JSON.stringify(`movie`));
   // }}
 
-  const handleClick = (keywordId) => {
-    console.log(keywordId, "event ");
+  const handleClick = (keywordId, keywordName) => {
+    console.log(keywordId, "event");
     navigate(`/keyword/${keywordId}`);
+    console.log("keyword name ", keywordName);
+    localStorage.setItem("tag", JSON.stringify(keywordName));
+
     // console.info("You clicked the Chip.");
     // const value = event.target.value
     // console.log (event.target.key, "event 2222")
@@ -52,7 +55,7 @@ function Tag({ movieId, idType }) {
     movie_keywords_API();
   }, []);
 
-  console.log(TagAPIData, "data");
+  console.log("data tag", TagAPIData);
 
   if (TagAPIData)
     return (
@@ -69,7 +72,9 @@ function Tag({ movieId, idType }) {
                 return (
                   <Chip
                     label={singleKeyword.name}
-                    onClick={() => handleClick(singleKeyword.id)}
+                    onClick={() =>
+                      handleClick(singleKeyword.id, singleKeyword.name)
+                    }
                     key={singleKeyword.id}
                   ></Chip>
                 );
@@ -79,7 +84,9 @@ function Tag({ movieId, idType }) {
                   <Chip
                     sx={{ name: `${singleKeyword.id}` }}
                     label={singleKeyword.name}
-                    onClick={handleClick}
+                    onClick={() =>
+                      handleClick(singleKeyword.id, singleKeyword.name)
+                    }
                     key={singleKeyword.id}
                   ></Chip>
                 );

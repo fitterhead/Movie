@@ -5,9 +5,14 @@ const initialState = {
   isAuthenticated: false,
   user: null,
 };
+// iniState = object has 2 values
 
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGOUT = "LOGOUT";
+
+//two var contains two strings
+
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -29,8 +34,10 @@ const reducer = (state, action) => {
 };
 
 const AuthContext = createContext({ ...initialState });
+//create context received a copy of initialStte
 
 function AuthProvider({ children }) {
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const login = async (username, callback) => {
@@ -40,6 +47,8 @@ function AuthProvider({ children }) {
     });
     callback();
   };
+
+//function login run two functions, dispatch is simple function return an object  
 
   const logout = async (callback) => {
     dispatch({ type: LOGOUT });
@@ -60,3 +69,6 @@ function AuthProvider({ children }) {
 }
 
 export { AuthContext, AuthProvider };
+
+
+

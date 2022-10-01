@@ -12,6 +12,8 @@ function DetailPage() {
   let params = useParams();
   const itemType = JSON.parse(localStorage.getItem("type"));
   console.log(typeof itemType);
+  console.log( itemType,"type id");
+  console.log( params.id,"param id");
   // const itemType = JSON.parse(localStorage.getItem("type"))
   return (
     <div
