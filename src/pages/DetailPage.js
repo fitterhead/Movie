@@ -8,12 +8,12 @@ import FilmDetail from "../components/FilmDetail";
 import Tag from "../components/Tag";
 import Recommendation from "../components/Recommendation";
 import { useParams } from "react-router-dom";
+
 function DetailPage() {
   let params = useParams();
   const itemType = JSON.parse(localStorage.getItem("type"));
-  console.log(typeof itemType);
-  console.log(itemType, "type id");
-  console.log(params.id, "param id");
+
+  console.log("thangtran.", "re-render");
   return (
     <div>
       <div className="DetailPage_FilmDetail_Wrapper">
