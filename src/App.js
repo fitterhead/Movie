@@ -1,9 +1,13 @@
+// React
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthProvider";
-import Router from "./routes";
+// import Router from "./routes";
+// Mui
 import { createTheme, ThemeProvider } from "@mui/material/styles"; //
-//
+// Router
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/router";
 
 function App() {
   const theme = createTheme({
@@ -43,9 +47,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AuthProvider>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
+        {/* <BrowserRouter> */}
+          {/* <Router /> */}
+          <RouterProvider router={router} />
+        {/* </BrowserRouter> */}
       </AuthProvider>
     </ThemeProvider>
   );
