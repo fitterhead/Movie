@@ -16,6 +16,9 @@ import FavouriteFilm from "../pages/FavouriteFilm";
 import LoginModal from "../components/LoginModal";
 // import AuthRequired from './AuthRequired'
 import LoginModalMain from "../components/LoginModalMain";
+import barba from '@barba/core';
+
+
 function Router() {
   let location = useLocation();
   console.log(location, "location status");
