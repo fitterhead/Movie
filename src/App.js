@@ -8,12 +8,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles"; //
 function App() {
   const theme = createTheme({
     typography: {
+      
       h5: {
         fontFamily: "Roboto",
       },
+
       h1: {
         fontFamily: "Droid Serif",
       },
+
       body1: {
         fontFamily: "Roboto",
         fontWeight: 200,
@@ -29,6 +32,7 @@ function App() {
         lineHeight: 1.2,
         letterSpacing: "0.02em",
       },
+
       h9: {
         fontFamily: "Source Serif Pro",
         fontStyle: "italic",
